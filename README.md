@@ -1,21 +1,31 @@
-### useMover
+### wysiwyg
+
 ##### Description
-
-* useMover is a hook that works both in react and vanilla javascript
-* It contains two functions; drag and resize
-
+Formate text
 
 ##### Installation
-
 ```
-npm i "@mozeyinedu/mover"
+npm i #mozeyinedu/wysiwyg
 ```
 
-#### drag()
+##### Usage
+* use only in vanilla.
+* Can also be used in react
+* wysiwyg() receives two arguments; An object with 3 key-value pair items and a callback
+    ```
+        const obtion = {
+            selector: ',
+            textFormat: ''
+            clear: true
+        }
+    ```
+* selector selects the textarea
+* textFormat: value is a string (innerText, textContent or innerHTML). Default(if not specified) is innerHTML; in this case the formated text will be received just the way it is in the wysiwyg.
+* clear: value is boolean (true or false). default is true; It tell the wysiwyg to either clear the textarea or not after submitted
 
-##### Usage 
+* The callback function returns the wysiwyg data depending on the textFormat.
 
-##### Usage in Vanilla Javascript
+##### examples
 
 ```
     <!DOCTYPE html>
@@ -25,79 +35,54 @@ npm i "@mozeyinedu/mover"
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        
+        <style>
+            #txt{
+                width:95vw;
+                max-width: 900px;
+                height: 90vh;
+                margin: auto;
+            };
+            #result{
+                color: #000;
+            }
+        </style>
     </head>
     <body>
-        <div id="div1" style="width: 100px; height: 70px; background: red">drag div 1</div>
-
-        <div id="div2" style="width: 100px; height: 70px; background: red; top: 100px">drag div 2</div>
-
-        <script src="https://unpkg.com/@mozeyinedu/mover@1.0.0/dist/index.js"></script>
-        <!-- make sure you use the most current version -->
+        
+        <textarea id="txt"></textarea>
+        <div id="result"></div>
+        <script src="../src/wysiwyg.js" ></script>
 
         <script>
-            const div1 = document.getElementById('div1')
-            const div2 = document.getElementById('div2')
+            const result = document.querySelector("#result");
+            wysiwyg({
+                selector: document.querySelector("#txt"),
+            }, (err, data)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    result.innerHTML = data;
+                }
 
-            const { drag, resize } = useMover()
+            })
 
-            drag(div1);
-
-            drag(div2, '10px solid teal'); //the second parameter is border during drag
         </script>
     </body>
     </html>
-
 ```
 
-##### Usage in React
-
 ```
-    import React, {useRef, useEffect} = "react";
-    import {useMover} = "@mozeyinedu/mover";
+    wysiwyg({
+        selector: document.querySelector("#txt"),
+        clear: false,
+        textFormat: 'innerText'
 
-    function App(){
-
-        const el1 = useRef(null);
-        const el2 = useRef(null);
-        const { drag, resize } useMover();
-
-        useEffect(()=>{
-            drag(el1);
-
-            drag(el2, "2px dotted gold");
-
-        }, [])
-        
-        return (
-            <div ref={el1} style={{
-                width: 100px;
-                height: 70px;
-                background: red}}
-            >
-                Drag Me
-            </div>
-            <div ref={el2} style={{
-                width: 100px;
-                height: 70px;
-                top: 100px;
-                background: teal}}
-            >
-                Drag Me
-            </div>
-        )
-    }
-
-    export default App;
-    
+    }, (err, data)=>{
+        if(err){
+            console.log(err)
+        }else{
+            result.innerHTML = data;
+        }
+    })
 ```
-
-#### resize()
-
-##### Usage 
-
-##### Usage in Vanilla Javascript
-
-......
-......
-
-##### Usage in Vanilla React

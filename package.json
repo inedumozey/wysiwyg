@@ -1,32 +1,23 @@
 {
-  "name": "@mozeyinedu/mover",
-  "version": "1.1.1",
-  "description": "moves element in the browser",
-  "main": "./src/index.js",
+  "name": "@mozeyinedu/wysiwyg",
+  "version": "1.0.0",
+  "description": "text formater",
+  "main": "./src/wysiwyg.js",
   "scripts": {
-    "build": "webpack --mode production"
+    "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/inedumozey/useMover.git"
+    "url": "https://github.com/inedumozey/wysiwyg.git"
   },
   "keywords": [
-    "drag",
-    "drager",
-    "mover",
-    "click-ang-drag"
+    "format text",
+    "text formater"
   ],
   "author": "mozey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/inedumozey/mover/issues"
+    "url": "https://github.com/inedumozey/wysiwyg/issues"
   },
-  "homepage": "https://github.com/inedumozey/mover#readme",
-  "devDependencies": {
-    "@babel/core": "^7.17.12",
-    "@babel/preset-env": "^7.17.12",
-    "babel-loader": "^8.2.5",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
-  }
+  "homepage": "https://github.com/inedumozey/wysiwyg#readme"
 }
