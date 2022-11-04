@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #txt {
+            width: 95vw;
+            max-width: 900px;
+            height: 90vh;
+            margin: auto;
+        }
+
+        ;
+
+        #result {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <textarea id="txt"></textarea>
+    <div id="result"></div>
+    <script src="../src/wysiwyg.js"></script>
+
+    <script>
+        const result = document.querySelector("#result");
+        wysiwyg({
+            selector: document.querySelector("#txt"),
+        }, (err, data) => {
+            if (err) {
+                console.log(err)
+            } else {
+                result.innerHTML = data;
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -5,11 +5,11 @@ Formate text
 
 ##### Installation
 ```
-npm i #mozeyinedu/wysiwyg
+npm i @mozeyinedu/wysiwyg
 ```
 
 ##### Usage
-* use only in vanilla.
+* use only in vanila js.
 * Can also be used in react
 * wysiwyg() receives two arguments; An object with 3 key-value pair items and a callback
     ```
